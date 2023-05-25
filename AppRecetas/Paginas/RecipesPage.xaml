@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppRecetas.Paginas"
+             x:Class="AppRecetas.Paginas.RecipesPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Text="Crear Nueva Receta" Clicked="Button_Clicked"></Button>
+            <TableView x:Name="recipesTable" IsVisible="False">
+                <TableRoot>
+                    <TableSection Title="Recetas">
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="Titulo" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+                                <Label Grid.Column="1" Text="Instrucciones" FontAttributes="Bold" HorizontalOptions="Center" VerticalOptions="Center" />
+                            </Grid>
+                        </ViewCell>
+                        <TextCell Text="No hay recetas cargadas." x:Name="emptyCell" />
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

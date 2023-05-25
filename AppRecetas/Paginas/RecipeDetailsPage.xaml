@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppRecetas.Paginas.RecipeDetailsPage"
+             Title="Detalles de la receta">
+    <StackLayout Padding="20" Spacing="10">
+        <Label x:Name="lblVerificar"/>
+
+        <!-- Mostrar ID -->
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center">
+            <Label Text="ID:" FontSize="18" HorizontalOptions="EndAndExpand" VerticalOptions="Center"/>
+            <Label x:Name="txtID" FontSize="18" HorizontalOptions="StartAndExpand" VerticalOptions="Center"/>
+        </StackLayout>
+
+        <!-- Mostrar Receta -->
+        <Label Text="Receta:" FontSize="18"/>
+        <Entry Placeholder="Receta" x:Name="txtTitulo" FontSize="18" />
+
+        <!-- Mostrar Instrucciones -->
+        <Label Text="Instrucciones:" FontSize="18"/>
+        <Editor Placeholder="Instrucciones" x:Name="txtInstrucciones" FontSize="18" HeightRequest="120" />
+
+        <!-- Mostrar Ingredientes -->
+        <Label Text="Ingredientes:" FontSize="18" />
+
+        <StackLayout Orientation="Horizontal">
+            <ListView x:Name="listIngredientes" VerticalOptions="FillAndExpand" SeparatorVisibility="None">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Entry Text="{Binding}" FontSize="18" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Button Text="+" FontSize="24" WidthRequest="40" HeightRequest="40" CornerRadius="20" BackgroundColor="#536DFE" TextColor="White" Clicked="AgregarIngrediente_Clicked"/>
+        </StackLayout>
+
+        <!-- Botones -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="10">
+            <Button Text="Eliminar Receta" BackgroundColor="#FF4081" TextColor="White" FontSize="18" Clicked="Button_Clicked" />
+            <Button Text="Editar Receta" BackgroundColor="#536DFE" TextColor="White" FontSize="18" Clicked="editarReceta" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

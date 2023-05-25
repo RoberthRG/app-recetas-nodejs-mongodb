@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppRecetas.Paginas.PruebaPostAPI">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Label x:Name="lblDatos" Text="Id"/>
+            <Entry Placeholder="Titulo" x:Name="txtTitulo"/>
+            <Entry Placeholder="Intrucciones" x:Name="txtInstrucciones"/>
+            <StackLayout>
+                <Entry Placeholder="Nuevo Ingrediente" x:Name="txtNuevoIngrediente"/>
+                <Button Text="Agregar Ingrediente" Clicked="Button_AgregarIngrediente_Clicked" />
+                <ListView x:Name="lstIngredientes" ItemSelected="ListView_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <TextCell Text="{Binding}" />
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+            <Button Text="Agregar Receta" Clicked="Button_Clicked" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
